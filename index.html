@@ -429,6 +429,23 @@
                     It acts as an exploratory map of past karmic trajectories and prospective windows of opportunity, helping individuals make deliberate choices instead of feeling controlled by arbitrary fates.
                 </p>
             </section>
+          
+            <!-- TRUE INTEGRATED KUNDALI GENERATOR -->
+            <section id="kundali-generator">
+                <h3>Generate Your Free Kundali</h3>
+                <p class="bio-paragraph" style="margin-bottom: 1.5rem;">
+                    Calculate your comprehensive Vedic natal chart, detailed planetary positions, and lagna systems instantly.
+                </p>
+                
+                <!-- This container will display the input form and map charts natively -->
+                <div id="navamsha-engine-container" style="width: 100%; min-height: 520px; border-radius: 8px; border: 1px solid var(--border); background: #faf9fd; padding: 0.5rem; overflow: hidden;">
+                    <!-- Navamsha engine automatically injects the free UI panel here -->
+                </div>
+                
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.8rem; text-align: center; font-style: italic;">
+                    Precision charting powered natively by Navamsha Astro Engine.
+                </p>
+            </section>
 
             <section>
                 <h3>Timeless Structural Branches</h3>
@@ -509,7 +526,27 @@
         <p>&copy; 2026 Astro Nilachakra. All Rights Reserved.</p>
     </footer>
 
+    <!-- Load the official Navamsha integration bundle script -->
+    <script src="https://www.navamsha.in/sdk/v1/navamsha-ui.js"></script>
+    
     <script>
+        // 1. Initialize the Navamsha calculator natively inside your container
+        window.addEventListener('DOMContentLoaded', () => {
+            if (typeof NavamshaUI !== 'undefined') {
+                NavamshaUI.init({
+                    apiKey: 'vda_live_c46a12cf_TFjVDAk933xdv9Yxh3ls4bvvqHIsApnvaNb7UZur3aY',
+                    containerId: 'navamsha-engine-container',
+                    theme: {
+                        primaryColor: '#4A154B', // Matches deep purple branding
+                        accentColor: '#D4AF37'   // Matches gold branding
+                    },
+                    defaultLanguage: 'en',
+                    showCharts: ['d1', 'd9'] // Displays classic Birth Chart & Navamsha Chart natively
+                });
+            }
+        });
+
+        // 2. Main Consultation Modal Interface Controllers
         const modal = document.getElementById('bookingModal');
         const openBtn = document.getElementById('openModalBtn');
         const closeBtn = document.getElementById('closeModalBtn');
@@ -531,5 +568,6 @@
             }
         });
     </script>
+
 </body>
 </html>
